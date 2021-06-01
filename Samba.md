@@ -53,8 +53,8 @@ So, the line we're adding to `/etc/fstab` should look something like:
 
 * `sudo nano /etc/fstab`
 
-    # ... The below should be the new last line of the file
-    PARTUUID=837a4475-6f18-4b46-908e-212c2ab10353 /BigChonk exfat defaults,nofail,noatime,rw,users,user_id=0,group_id=0,default_permissions,allow_other,umask=000 0 2
+        # ... The below should be the new last line of the file
+        PARTUUID=837a4475-6f18-4b46-908e-212c2ab10353 /BigChonk exfat defaults,nofail,noatime,rw,users,user_id=0,group_id=0,default_permissions,allow_other,umask=000 0 2
   
 ## Samba
 
