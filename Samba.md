@@ -179,7 +179,7 @@ You'll find that Windows 10 computers can't see your Raspberry Pi, either locall
 * `sudo apt update`
 * `sudo apt install -y wsdd`
 
-Now configure it to match your Samba config:
+Now configure it to match your Samba config.  The following lines create an `/etc/wsdd.conf` that exactly matches your SMB config.
 
 * `WORKGROUP=$(grep -oP '(?<=workgroup ?= ?).*' /etc/samba/smb.conf)`
 * `SMBHOST=$(grep -oP '(?<=netbios name ?= ?).*' /etc/samba/smb.conf)`
