@@ -191,6 +191,7 @@ but entirely optional.  I recommend [RealVNC](https://www.realvnc.com/en/connect
 
 \[Optional\]
 
+* type `sudo raspi-config` and press \[Enter\]
 * Go to `3 Interface Options`
 * Go to `P3 VNC`
 * Select `<Yes>` and press \[Enter\]
