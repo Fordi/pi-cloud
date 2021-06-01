@@ -22,10 +22,10 @@ Next, you may need to format your drive.  If your disk is already formatted, ski
 
 * `mkfs.exfat -n "BigChonk" /dev/sda2`
 
-    mkexfatfs 1.3.0
-    Creating... done.
-    Flushing... done.
-    File system created successfully.
+        mkexfatfs 1.3.0
+        Creating... done.
+        Flushing... done.
+        File system created successfully.
 
 Next, we'll need some parameters:
 
