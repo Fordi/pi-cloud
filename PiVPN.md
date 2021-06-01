@@ -14,7 +14,7 @@ Here, we'll set up PiVPN and WireGuard
 * Select `WireGuard` with [Space], and press [Enter]
 * Use the default port, `51820`
 * The DNS provider for your clients should be your router, which is normally `192.168.1.1`.  Select `Custom` with [Space], then enter `192.168.1.1`.
-* For public IP, select `DNS Entry`, and enter the domain name you set up in [Dynamic DNS](Dynamic%20DNS.md)
+* For public IP, select `DNS Entry`, and enter the domain name you set up in [Dynamic DNS](Dynamic%20DNS)
 * When asked about unattended upgrades, select `<Yes>`.
 * Do not reboot yet; select `<No>`.
 
@@ -86,7 +86,7 @@ If you're all set up, you should see something like this:
     Name           Remote IP                 Virtual IP      Bytes Received      Bytes Sent      Last Seen
     fordi          123.45.67.89:22620      10.6.0.2        7.0KiB              17KiB           Jun 01 2021 - 15:43:30
 
-You should be ready to install [Samba](Samba.md) now.
+You should be ready to install [Samba](Samba) now.
 
 ## Security
 

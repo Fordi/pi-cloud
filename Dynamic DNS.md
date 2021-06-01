@@ -92,5 +92,5 @@ Next, you'll have to set up a cron job to periodically update your IP:
 
 * [Ctrl+X], [Y], then [Enter]
 
-At this point, you should be good to move on to [PiVPN](PiVPN.md).
+At this point, you should be good to move on to [PiVPN](PiVPN).
 

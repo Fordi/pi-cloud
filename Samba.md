@@ -197,4 +197,4 @@ With a phone or tablet, turn off WiFi and activate your VPN.  Install VLC Media 
 
 If you're here, and everything's good, that's about the last of it.  You should now have a working Cloud server you can access from anywhere!
 
-If you're here and everything's _not_ working, please [file an issue](../../issues), and I'll be happy to help you debug the problem.
+If you're here and everything's _not_ working, please [file an issue](https://github.com/Fordi/pi-cloud/issues), and I'll be happy to help you debug the problem.

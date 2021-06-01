@@ -22,9 +22,9 @@ It will require the following hardware:
 
 The main steps we will walk through:
 
-1. [Basic setup](Basic%20setup.md) - Set up your Raspberry Pi and be able to consistently control it from your main computer.
-2. [Dynamic DNS](Dynamic%20DNS.md) - This will allow your always-changing public IP to be addressable by an unchanging domain name.
-3. [PiVPN](PiVPN.md) - This will enable you to access your local network from the outside world, through an authenticated, encrypted, and easy-to-use tunnel.
-4. [Samba](Samba.md) - This will share your Big Storage with authenticated users, and also includes permanent mounting instructions.
+1. [Basic setup](Basic%20setup) - Set up your Raspberry Pi and be able to consistently control it from your main computer.
+2. [Dynamic DNS](Dynamic%20DNS) - This will allow your always-changing public IP to be addressable by an unchanging domain name.
+3. [PiVPN](PiVPN) - This will enable you to access your local network from the outside world, through an authenticated, encrypted, and easy-to-use tunnel.
+4. [Samba](Samba) - This will share your Big Storage with authenticated users, and also includes permanent mounting instructions.
 
-If you've got all he required hardware, proceed to [Basic setup](Basic%20setup.md).
+If you've got all he required hardware, proceed to [Basic setup](Basic%20setup).
