@@ -14,6 +14,8 @@ You'll need to locate your drive.  Plug it in, open your Pi console, then run:
 
 Under there, you should see `mmcblk0` (your Pi's microSD card), and `sda` (your USB drive).  You might see several partitions; remember the one with the largest entry in the `SIZE` column (in my case, `sda2`).
 
+> Note: if you've plugged in multipl hard drives, you'll have multiple `sd#` entries.  If you're planning on sharing them all, you'll need to repeat this for each one.  Alternately, you could go crazy and set up software RAID with `mdadm`, but that's _way_ outside the scope of this document. 
+
 Anywhere I write `sda2`, substitute in your drive's name:
 
 Next, you may need to format your drive.  If your disk is already formatted, skip this.  So you can use your drive elsewhere, we're going to go with exFAT.
