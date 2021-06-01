@@ -3,7 +3,7 @@
 ## Initialize your Raspberry Pi's SD card
 
 * Download and install [Raspberry Pi Imager](https://www.raspberrypi.org/software/) to your main machine.
-    * [Optional]: if you're using `dd`, Balena etcher, or some other imaging software, you can grab a
+    * \[Optional\]: if you're using `dd`, Balena etcher, or some other imaging software, you can grab a
       [Raspbian image](https://www.raspberrypi.org/software/operating-systems/) directly.
 * Plug in your microSD card reader, loaded with the card you intend to use for your OS.
 * Click "CHOOSE OS", and select "Raspberry Pi OS (32-bit)"
@@ -13,7 +13,7 @@
 
 ## Set up WiFi
 
-[Optional]
+\[Optional\]
 
 If you're not connecting via ethernet, you'll need to set up WiFi on your Pi before powering it on.
 
@@ -35,7 +35,7 @@ If you're not connecting via ethernet, you'll need to set up WiFi on your Pi bef
 
 If you're not using a keyboard/mouse/monitor, you'll need to communicate with your Pi via SSH.
 
-[Optional], [Recommended]
+\[Optional\], \[Recommended\]
 
 * Plug your microSD reader back in.
 * Find the drive labeled "boot"
@@ -90,7 +90,7 @@ Again, ***write it down***.
 
 If you're not using a keyboard/mouse/monitor, you'll need to sign in via SSH.
 
-[Optional]
+\[Optional\]
 
 ### Windows + PuTTY
 
@@ -140,28 +140,28 @@ You'll want to let the Pi know where it exists in the world.  Each of the follow
 
 ### Locale
 
-* type `sudo raspi-config` and press [Enter]
-* Go to `5 Localization Options` and press [Enter]
-* Go to `L1 Locale` and press [Enter]
+* type `sudo raspi-config` and press \[Enter\]
+* Go to `5 Localization Options` and press \[Enter\]
+* Go to `L1 Locale` and press \[Enter\]
 * Unless you're in the UK, deselect `en_GB.UTF-8 UTF-8`, then find your own locale (for me, it's `en_US.UTF-8 UTF-8`).  It is almost 
   certainly going to be some variant of `lang_COUNTRY.UTF-8 UTF-8`.
-* Hit [Tab], select `<OK>`, and press [Enter]
-* Select `C.UTF-8` as the default locale, and press [Enter].
+* Hit \[Tab\], select `<OK>`, and press \[Enter\]
+* Select `C.UTF-8` as the default locale, and press \[Enter\].
 
 ### Timezone
 
-* type `sudo raspi-config` and press [Enter]
-* Go to `5 Localization Options` and press [Enter]
-* Go to `L2 Timezone` and press [Enter]
+* type `sudo raspi-config` and press \[Enter\]
+* Go to `5 Localization Options` and press \[Enter\]
+* Go to `L2 Timezone` and press \[Enter\]
 * Drill down to your local timezone (For me, it's `America`, `New York`).
 
 ### Keyboard layout
 
 > Note: if you're not using a physical keyboard, this doesn't matter
 
-* type `sudo raspi-config` and press [Enter]
-* Go to `5 Localization Options` and press [Enter]
-* Go to `L3 Keyboard` and press [Enter]
+* type `sudo raspi-config` and press \[Enter\]
+* Go to `5 Localization Options` and press \[Enter\]
+* Go to `L3 Keyboard` and press \[Enter\]
 * You probably want to pick `Generic 105-key PC`
 * Pick your layout.  Mine was `English (US)`
 * The defaults are probably fine (`The default for the keyboard layout`, `No compose key`, `<No>`)
@@ -170,39 +170,39 @@ You'll want to let the Pi know where it exists in the world.  Each of the follow
 
 > Note: if you set up a `wpa_supplicant.conf` in your boot partition at the beginning, you don't need to do this.
 
-* type `sudo raspi-config` and press [Enter]
-* Go to `5 Localization Options` and press [Enter]
-* Go to `L4 WLAN Country` and press [Enter]
+* type `sudo raspi-config` and press \[Enter\]
+* Go to `5 Localization Options` and press \[Enter\]
+* Go to `L4 WLAN Country` and press \[Enter\]
 * Find and select your country
 
 ### Enable SSH
 
 > Note: if you created the file `ssh` in your boot partition at the beginning, you don't need to do this.
 
-* type `sudo raspi-config` and press [Enter]
+* type `sudo raspi-config` and press \[Enter\]
 * Go to `3 Interface Options`
 * Go to `P2 SSH`
-* Select `<Yes>` and press [Enter]
+* Select `<Yes>` and press \[Enter\]
 
 ### Enable VNC
 
 Enabling VNC will allow you to access your Pi's desktop for administration without having a keyboard/mouse/monitor connected.  It's a nice convenience, 
 but entirely optional.  I recommend [RealVNC](https://www.realvnc.com/en/connect/download/viewer/) as your viewer.
 
-[Optional]
+\[Optional\]
 
 * Go to `3 Interface Options`
 * Go to `P3 VNC`
-* Select `<Yes>` and press [Enter]
+* Select `<Yes>` and press \[Enter\]
 
 If you plan on running your Pi headless, but want VNC access, you'll need to force HDMI on.  Exit `raspi-config`, and do the following:
 
 * `sudo nano /boot/config.txt`
 * Uncomment (removing the leading `#` from) the line `hdmi_force_hotplug=1`
-* Press [Ctrl+X], [Y] then [Enter]
+* Press \[Ctrl+X\], \[Y\] then \[Enter\]
 * `sudo reboot now`
 
-Your next step is to set up [Dynamic DNS](Dynamic%20DNS.md).
+Your next step is to set up [Dynamic DNS](Dynamic%20DNS).
 
 ### Update
 

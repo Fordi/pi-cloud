@@ -90,7 +90,7 @@ Next, you'll have to set up a cron job to periodically update your IP:
         ## retry failed updates every hour
         0 * * * *	root    /usr/sbin/ddclient -daemon=0 -syslog -quiet retry
 
-* [Ctrl+X], [Y], then [Enter]
+* \[Ctrl+X\], \[Y\], then \[Enter\]
 
 At this point, you should be good to move on to [PiVPN](PiVPN).
 

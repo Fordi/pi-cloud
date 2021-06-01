@@ -14,11 +14,11 @@ It will require the following hardware:
 * A microSD card.  Ideally, this will be a brand-name (SanDisk, Samsung, etc) XCII V90 card.  See the SD Association's
   [Speed Class](https://www.sdcard.org/developers/sd-standard-overview/speed-class/) page for more information.
 * A way to write data to microSD cards.
-* [Recommended] A keyboard, mouse, and monitor.  This isn't _absolutely_ necessary, but it's a lot easier to
+* \[Recommended\] A keyboard, mouse, and monitor.  This isn't _absolutely_ necessary, but it's a lot easier to
   work with Rasperry Pi if you can directly control it.
-* [Recommended] An ethernet cable.  Again, not absolutely necessary, but things will perform much better over
+* \[Recommended\] An ethernet cable.  Again, not absolutely necessary, but things will perform much better over
   the wire than over the air.
-* [Recommended] A large chunk of USB 3.0 storage.
+* \[Recommended\] A large chunk of USB 3.0 storage.
 
 The main steps we will walk through:
 

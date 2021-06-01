@@ -8,12 +8,12 @@ Here, we'll set up PiVPN and WireGuard
 > Note: if you make a mistake, re-run this command, and select `Reconfigure`
 
 * Read and proceed until you're given a choice.
-* If you're going to use ethernet, select `eth0`, if WiFi, use `wlan0`.  Use [space] to select, then press [Enter].
+* If you're going to use ethernet, select `eth0`, if WiFi, use `wlan0`.  Use \[Space\] to select, then press \[Enter\].
 * When asked for your DHCP reservation, select `<No>`.  This doesn't actually matter for us, since we'll be setting up UPnP.
 * The user for your VPN service is `pi`
-* Select `WireGuard` with [Space], and press [Enter]
+* Select `WireGuard` with \[Space\], and press \[Enter\]
 * Use the default port, `51820`
-* The DNS provider for your clients should be your router, which is normally `192.168.1.1`.  Select `Custom` with [Space], then enter `192.168.1.1`.
+* The DNS provider for your clients should be your router, which is normally `192.168.1.1`.  Select `Custom` with \[Space\], then enter `192.168.1.1`.
 * For public IP, select `DNS Entry`, and enter the domain name you set up in [Dynamic DNS](Dynamic%20DNS)
 * When asked about unattended upgrades, select `<Yes>`.
 * Do not reboot yet; select `<No>`.
@@ -41,7 +41,7 @@ This part will enable your Pi to open up an incoming port in your router without
         [Install]
         WantedBy=wg-quick@wg0.service
     
-* [Ctrl+X], [Y], then [Enter]
+* \[Ctrl+X\], \[Y\], then \[Enter\]
 * `sudo systemctl enable wg-upnp.service`
 * `sudo systemctl daemon-reload`
 
