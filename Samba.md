@@ -39,7 +39,7 @@ Make a note of **PARTUUID** and **TYPE**, then create a directory in the root fi
 
 Finally, make an entry in `/etc/fstab` for the drive, so that it's always mounted on-boot and by root.  The entry is of this format:
 
-PARTUUID={PARTUUID from above} {mount path} {TYPE} [options] [dump] [passno]
+`PARTUUID={PARTUUID from above} {mount path} {TYPE} [options] [dump] [passno]`
 
 For options, we'll use: `defaults,nofail,noatime,rw,users,user_id=0,group_id=0,default_permissions,allow_other,umask=000`.  These will mount the drive as root, and allow any user to make changes to the drive (important for Samba to
 work with little fuss; it's not great for a multi-user or public system, but
@@ -129,6 +129,9 @@ Edit Samba's config
         directory mask=0755
         public=no
         hide unreadable=yes
+
+    > Note that shares made this way can _only_ be accessed while you're on the VPN.  People that are merely on the local network will not be able
+    to access them.
 
 Each time you tweak `/etc/samba/smb.conf`, you'll need to restart Samba:
 
