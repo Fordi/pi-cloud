@@ -31,8 +31,7 @@ Next, we'll need some parameters:
 
 * `blkid /dev/sda2`
 
-    /dev/sda2: LABEL="BigChonk" UUID="A1B2C3D4E5F60718" TYPE="exfat" 
-    PTTYPE="dos" PARTLABEL="Basic data partition" PARTUUID="837a4475-6f18-4b46-908e-212c2ab10353"
+       /dev/sda2: LABEL="BigChonk" UUID="A1B2C3D4E5F60718" TYPE="exfat" PTTYPE="dos" PARTLABEL="Basic data partition" PARTUUID="837a4475-6f18-4b46-908e-212c2ab10353"
 
 Make a note of **PARTUUID** and **TYPE**, then create a directory in the root filesystem for the drive.  We'll use the drive's label, but you can name it whatever you want.  This will be the **mount path**
 
