@@ -129,6 +129,43 @@ Edit Samba's config
         public=no
         hide unreadable=yes
 
+Each time you tweak `/etc/samba/smb.conf`, you'll need to restart Samba:
+
+* `sudo systemctl restart smbd`
+
+If you've messed with `netbios name` or `workgroup`, you'll also need to restart NMB:
+
+* `sudo systemctl restart nmbd`
+
+### Adding new Samba users / groups
+
+If you need to provide password-protected access for multiple users on your shares, you can create new users and groups.
+
+To create a user:
+
+* `sudo useradd -M -N cookie`
+* `sudo smbpasswd -a cookie`
+* Enter the user's new password
+
+To create a group (which can be referenced in `smb.conf` with a leading `@`):
+
+* `sudo groupadd cookiejar`
+
+To add a user to a group:
+
+* `sudo usermod -a -G cookiejar cookie`
+
+To delete a user
+
+* `sudo userdel cookie`
+
+Finally, to change a user's SMB password,
+
+* `sudo smbpasswd cookie`
+* Enter the user's new password
+
+See the headings above for how to set up a user- or group-resticted share.
+
 ## WSDD
 
 You'll find that Windows 10 computers can't see your Raspberry Pi, either locally or through the VPN.  This is because Windows 10 no longer supports the NMB protocol for security reasons.  To fix it, we have to install and configure `wsdd`:
@@ -144,3 +181,20 @@ Now configure it to match your Samba config:
 * `SMBHOST=$(grep -oP '(?<=netbios name ?= ?).*' /etc/samba/smb.conf)`
 * `echo 'WSDD_PARAMS="'"-v -w $WORKGROUP -n $SMBHOST -p"'"' | sudo tee /etc/wsdd.conf`
 
+## Validate
+
+### Local access
+
+Go to another machine on your local network, and look in its network places.  For Windows, this is near the bottom on Explorer's left sidebar; for OS-X, it will be in the left sidebar under "Locations".  It varies on Linux, but I'm already kinda talking down to Linux users; you know where it is.
+
+You should see a computer in your network places corresponding to the hostname you chose.  If you double-click it, you should see the shares you configured.  Drill down deeper, and you'll get the files on those shares.
+
+### Remote access
+
+With a phone or tablet, turn off WiFi and activate your VPN.  Install VLC Media Player (it has good SMB browsing support), and tap "Browse" on the bottom tab bar (looks like a folder).  In the "Local Network" section, you should see your Pi appear.  Make sure you can browse in, and, for funsies, put a movie file on your Pi so you can try playing it through your VPN.
+
+### Conclusion
+
+If you're here, and everything's good, that's about the last of it.  You should now have a working Cloud server you can access from anywhere!
+
+If you're here and everything's _not_ working, please [file an issue](../../issues), and I'll be happy to help you debug the problem.

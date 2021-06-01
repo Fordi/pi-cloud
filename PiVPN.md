@@ -61,6 +61,7 @@ Once that's done, you'll need to register the user on the devices you want to be
 * In the WireGuard app, tap the (+) button, then select "Scan from QR code"
 * In your Pi console, run `pivpn -qr username`
 * Scan the resulting QR code.
+* Run `clear`
 
 ## Laptop / Desktop setup
 
@@ -87,4 +88,6 @@ If you're all set up, you should see something like this:
 
 You should be ready to install [Samba](Samba.md) now.
 
+## Security
 
+These `{username}.conf` files and QR codes now represent an open door into your private network.  Make sure you don't leave copies of them around and you don't leave them on your screen in public places.
