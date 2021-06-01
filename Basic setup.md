@@ -203,7 +203,6 @@ If you plan on running your Pi headless, but want VNC access, you'll need to for
 * Press \[Ctrl+X\], \[Y\] then \[Enter\]
 * `sudo reboot now`
 
-Your next step is to set up [Dynamic DNS](Dynamic%20DNS).
 
 ### Update
 
@@ -211,3 +210,5 @@ You'll want your system to be as up to date as possible.
 
 * `sudo apt update`
 * `sudo apt -yq upgrade`
+
+Your next step is to set up [Dynamic DNS](Dynamic%20DNS).
