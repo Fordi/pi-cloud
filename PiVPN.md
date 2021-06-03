@@ -25,7 +25,7 @@ This part will enable your Pi to open up an incoming port in your router without
 * `sudo apt install miniupnpc`
 * `sudo systemctl edit --force --full wg-upnp.service`
 
-* Enter the following:
+* Paste the following:
 
         [Unit]
         Description=UPnP forwarding for WireGuard
@@ -36,13 +36,15 @@ This part will enable your Pi to open up an incoming port in your router without
         Type=oneshot
         # Delays execution until after the Pi has an default route to the gateway (router).
         # Apparently, `Requires=network-online.target` doesn't do this.  Who knew?
-        ExecStartPre=/bin/sh -c 'until ip route list | head -1 | grep -Po '"'"'(?<=default via )([0-9\.]+)'"'"'; do sleep 1; done'
-        ExecStart=/usr/bin/upnpc -e WireGuard -r 51820 UDP
-        ExecStop=/usr/bin/upnpc -d 51820 UDP
+        ExecStartPre=/bin/sh -c 'until ip route list | head -1 | grep -Po '"'"'(?<=default via )([0-9\\.]+)'"'"'; do sleep 1; done'
+        # Starts upnpc; the grep command is looking up WireGuard's listenPort from its config file.
+        ExecStart=/bin/sh -c '/usr/bin/upnpc -e WireGuard -r "$(grep -Po '"'"'(?<=ListenPort = )([0-9]+)'"'"' /etc/wireguard/wg0.conf)" UDP'
+        ExecStop=/bin/sh -c '/usr/bin/upnpc -d "$(grep -Po '"'"'(?<=ListenPort = )([0-9]+)'"'"' /etc/wireguard/wg0.conf)" UDP'
         RemainAfterExit=true
 
         [Install]
         WantedBy=wg-quick@wg0.service
+
     
 * \[Ctrl+X\], \[Y\], then \[Enter\]
 * `sudo systemctl enable wg-upnp.service`
