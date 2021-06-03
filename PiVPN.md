@@ -34,6 +34,9 @@ This part will enable your Pi to open up an incoming port in your router without
 
         [Service]
         Type=oneshot
+        # Delays execution until after the Pi has an default route to the gateway (router).
+        # Apparently, `Requires=network-online.target` doesn't do this.  Who knew?
+        ExecStartPre=/bin/sh -c 'until ip route list | head -1 | grep -Po '"'"'(?<=default via )([0-9\.]+)'"'"'; do sleep 1; done'
         ExecStart=/usr/bin/upnpc -e WireGuard -r 51820 UDP
         ExecStop=/usr/bin/upnpc -d 51820 UDP
         RemainAfterExit=true
