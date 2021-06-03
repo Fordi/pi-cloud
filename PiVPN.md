@@ -85,11 +85,32 @@ From whatever device you've set up, activate the tunnel, then run
 
 * `pivpn -c`
 
-If you're all set up, you should see something like this:
+If your VPN is all set up, you should see something like this:
 
     ::: Connected Clients List :::
     Name           Remote IP                 Virtual IP      Bytes Received      Bytes Sent      Last Seen
     fordi          123.45.67.89:22620      10.6.0.2        7.0KiB              17KiB           Jun 01 2021 - 15:43:30
+
+If your UPnP forwarding is set up, you should see something like this after running `systemctl status wg-upnp`
+
+    ● wg-upnp.service - UPnP forwarding for WireGuard
+       Loaded: loaded (/etc/systemd/system/wg-upnp.service; enabled; vendor preset: enabled)
+       Active: active (exited) since Thu 2021-06-03 02:13:04 EDT; 16s ago
+      Process: 2183 ExecStartPre=/bin/sh -c until ip route list | head -1 | grep -Po '(?<=default via )([0-9\.]+)'; do sleep 1; done (code=exited, sta
+      Process: 2187 ExecStart=/bin/sh -c /usr/bin/upnpc -e WireGuard -r "$(grep -Po '(?<=ListenPort = )([0-9]+)' /etc/wireguard/wg0.conf)" UDP (code=e
+     Main PID: 2187 (code=exited, status=0/SUCCESS)
+
+    Jun 03 02:13:04 razzle-dazzle sh[2187]:  desc: http://192.168.1.1:2555/upnp/b996b6fb-e181-3ec2-873d-9964b542029b/desc.xml
+    Jun 03 02:13:04 razzle-dazzle sh[2187]:  st: urn:schemas-upnp-org:device:InternetGatewayDevice:1
+    Jun 03 02:13:04 razzle-dazzle sh[2187]:  desc: http://192.168.1.8:5555/rootDesc.xml
+    Jun 03 02:13:04 razzle-dazzle sh[2187]:  st: urn:schemas-upnp-org:device:InternetGatewayDevice:1
+    Jun 03 02:13:04 razzle-dazzle sh[2187]: Found valid IGD : http://192.168.1.1:2555/upnp/72e44ef4-f12a-3886-80d5-df06b929214f/WANIPConn1.ctl
+    Jun 03 02:13:04 razzle-dazzle sh[2187]: Local LAN ip address : 192.168.1.15
+    Jun 03 02:13:04 razzle-dazzle sh[2187]: ExternalIPAddress = 100.11.89.31
+    Jun 03 02:13:04 razzle-dazzle sh[2187]: InternalIP:Port = 192.168.1.15:51820
+    Jun 03 02:13:04 razzle-dazzle sh[2187]: external 100.11.89.31:51820 UDP is redirected to internal 192.168.1.15:51820 (duration=0)
+    Jun 03 02:13:04 razzle-dazzle systemd[1]: Started UPnP forwarding for WireGuard.
+
 
 You should be ready to install [Samba](Samba) now.
 
