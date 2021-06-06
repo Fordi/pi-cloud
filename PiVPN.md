@@ -15,7 +15,7 @@ Here, we'll set up PiVPN and WireGuard
 * Use the default port, `51820`
 * The DNS provider for your clients should be your router, which is normally `192.168.1.1`.  Select `Custom` with \[Space\], then enter `192.168.1.1`.
     > Note: not all routers act as DNS servers, but most modern ones do.  If after you connect to your VPN, you can't, say, browse to Google, start over here,
-    > and select one of the default DNS providers.
+    > and select one of the default DNS providers.  If this becomes necessary, you'll also need to reconfigure all your VPN clients.
 * For public IP, select `DNS Entry`, and enter the domain name you set up in [Dynamic DNS](Dynamic%20DNS)
 * When asked about unattended upgrades, select `<Yes>`.
 * Do not reboot yet; select `<No>`.
@@ -31,23 +31,27 @@ This part will enable your Pi to open up an incoming port in your router without
 
         [Unit]
         Description=UPnP forwarding for WireGuard
+        # Ensures this runs after wireguard is started
         After=wg-quick@wg0.service
+        # Ensures this stops when wireguard is stopped
         Requires=wg-quick@wg0.service
 
         [Service]
+        # Lets the service remain in the "running" state, even though the actual "run" exits immediately
         Type=oneshot
+        RemainAfterExit=true
         # Delays execution until after the Pi has an default route to the gateway (router).
         # Apparently, `Requires=network-online.target` doesn't do this.  Who knew?
         ExecStartPre=/bin/sh -c 'until ip route list | head -1 | grep -Po '"'"'(?<=default via )([0-9\\.]+)'"'"'; do sleep 1; done'
-        # Starts upnpc; the grep command is looking up WireGuard's listenPort from its config file.
+        # Runs upnpc to map the port; the grep command is looking up WireGuard's listenPort from its config file.
         ExecStart=/bin/sh -c '/usr/bin/upnpc -e WireGuard -r "$(grep -Po '"'"'(?<=ListenPort = )([0-9]+)'"'"' /etc/wireguard/wg0.conf)" UDP'
+        # Runs upnpc to unmap the port
         ExecStop=/bin/sh -c '/usr/bin/upnpc -d "$(grep -Po '"'"'(?<=ListenPort = )([0-9]+)'"'"' /etc/wireguard/wg0.conf)" UDP'
-        RemainAfterExit=true
 
         [Install]
+        # Ensures that starting WireGuard also starts this.
         WantedBy=wg-quick@wg0.service
 
-    
 * \[Ctrl+X\], \[Y\], then \[Enter\]
 * `sudo systemctl enable wg-upnp.service`
 * `sudo systemctl daemon-reload`
