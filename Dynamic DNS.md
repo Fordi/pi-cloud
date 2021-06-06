@@ -55,7 +55,7 @@ applies to your domain hosting, and
 
 Test your config:
 
-* `sudo ddclient -daemon=0 -debug; echo 0`
+* `sudo ddclient -daemon=0 -debug; echo $?`
 
 A good result will look something like this:
 
@@ -68,6 +68,7 @@ A good result will look something like this:
     DEBUG:    proxy  =
     DEBUG:    url    = http://dynupdate.no-ip.com/nic/update?system=noip&hostname=myhost.ddns.net&myip=123.45.67.89
     DEBUG:    server = dynupdate.no-ip.com
+    0
 
 Next, you'll have to set up a cron job to periodically update your IP:
 
