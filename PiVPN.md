@@ -24,8 +24,10 @@ Here, we'll set up PiVPN and WireGuard
 
 This part will enable your Pi to open up an incoming port in your router without you needing to go into your router's admin console (which, if your router doesn't support UPnP, I can't actually help you with - more than saying, "Open a port from your router for TCP and UDP ports 51820 into your Pi").
 
-* `sudo apt install miniupnpc`
-* `sudo systemctl edit --force --full wg-upnp.service`
+* Install the `upnpc` command:  
+    `sudo apt install miniupnpc`
+* Create a new service:  
+    `sudo systemctl edit --force --full wg-upnp.service`
 
 * Paste the following:
 
