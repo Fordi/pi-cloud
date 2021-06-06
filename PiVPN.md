@@ -14,6 +14,8 @@ Here, we'll set up PiVPN and WireGuard
 * Select `WireGuard` with \[Space\], and press \[Enter\]
 * Use the default port, `51820`
 * The DNS provider for your clients should be your router, which is normally `192.168.1.1`.  Select `Custom` with \[Space\], then enter `192.168.1.1`.
+    > Note: not all routers act as DNS servers, but most modern ones do.  If after you connect to your VPN, you can't, say, browse to Google, start over here,
+    > and select one of the default DNS providers.
 * For public IP, select `DNS Entry`, and enter the domain name you set up in [Dynamic DNS](Dynamic%20DNS)
 * When asked about unattended upgrades, select `<Yes>`.
 * Do not reboot yet; select `<No>`.
