@@ -128,7 +128,9 @@ begin with a number or `-`, and cannot end with `-`.  Spaces, uppercase, and oth
 
 Use the following commands to update the hostname, then reboot.
 
-    echo "new-hostname" | sudo tee /etc/hostname
+    HOST="new-hostname"
+    echo "$HOST" | sudo tee /etc/hostname
+    sudo sed -e 's/^\(127\.0\.1\.1[\s\t]\+\)[a-zA-Z0-9-]\+/\1'"$HOST"'/' -i /etc/hosts
     sudo reboot now
 
 > Note: you've just changed your hostname.  If you've changed it to `razzle-dazzle`, Anything that used to be 
