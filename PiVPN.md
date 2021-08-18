@@ -119,6 +119,20 @@ If your UPnP forwarding is set up, you should see something like this after runn
     Jun 03 02:13:04 razzle-dazzle sh[2187]: external 100.11.89.31:51820 UDP is redirected to internal 192.168.1.15:51820 (duration=0)
     Jun 03 02:13:04 razzle-dazzle systemd[1]: Started UPnP forwarding for WireGuard.
 
+If you don't see `duration=0` (e.g., my new router reports `duration=86400`), you'll need to add a cron job to restart the service periodically.
+
+Run:
+
+    $ sudo crontab -e
+
+If you're unsure, pick `nano` as your editor.
+
+In this file, add the line:
+
+    0 6 * * * systemctl restart wg-upnp.service
+
+That will restart the service once a day.  If your `duration` is some other value than `86400` (1 day), you can use [Crontab.guru](https://crontab.guru/) to help you design a scheduling string to match.
+    
 
 You should be ready to install [Samba](Samba) now.
 
