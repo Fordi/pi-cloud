@@ -69,7 +69,7 @@ You should see something like...
     64 bytes from raspberrypi.local (192.168.1.15): icmp_seq=4 ttl=64 time=0.057 ms
 
 For Linux and OS-X, you can hit Ctrl+C to stop.  Windows will stop on its own.  That dotted number, `192.168.x.y`, 
-is your Pi's IP address.  ***Write it down***
+is your Pi's IP address. (Note: may be `10.0.x.y`)  ***Write it down***
 
 If this doesn't work, you'll need to grab a keyboard / mouse / monitor and get your Raspberry Pi's IP address manually:
 
@@ -85,7 +85,7 @@ If this doesn't work, you'll need to grab a keyboard / mouse / monitor and get y
             inet6 fe80::13c4:336c:2a93:4196/64 scope link
               valid_lft forever preferred_lft forever
 
-Your Pi's IP address is the four-octet number immediately following `inet` and starting with `192.`.  Drop the `/24` (netmask).
+Your Pi's IP address is the four-octet number immediately following `inet` and starting with `192.` or `10.`.  Drop the `/24` (netmask).
 Again, ***write it down***.
 
 ## Sign in
