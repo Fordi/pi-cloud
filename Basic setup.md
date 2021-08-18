@@ -22,14 +22,16 @@ If you're not connecting via ethernet, you'll need to set up WiFi on your Pi bef
 * Create a new text file in the root of boot called: `wpa_supplicant.conf`, and fill it as appropriate, using 
   this template:
 
-    country={two-letter country code, e.g., US}
-    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-    update_config=1
+```
+country={two-letter country code, e.g., US}
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
 
-    network={
-        ssid="{WiFi network name}"
-        psk="{WiFi network password}"
-    }
+network={
+  ssid="{WiFi network name}"
+  psk="{WiFi network password}"
+}
+```
 
 ## Set up SSH
 
