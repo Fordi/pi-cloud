@@ -175,7 +175,7 @@ See the headings above for how to set up a user- or group-resticted share.
 You'll find that Windows 10 computers can't see your Raspberry Pi, either locally or through the VPN.  This is because Windows 10 no longer supports the NMB protocol for security reasons.  To fix it, we have to install and configure `wsdd`:
 
 * `echo "deb https://pkg.ltec.ch/public/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/wsdd.list`
-* `apt-key adv --fetch-keys https://pkg.ltec.ch/public/conf/ltec-ag.gpg.key`
+* `sudo apt-key adv --fetch-keys https://pkg.ltec.ch/public/conf/ltec-ag.gpg.key`
 * `sudo apt update`
 * `sudo apt install -y wsdd`
 
